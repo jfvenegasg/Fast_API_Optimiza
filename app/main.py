@@ -32,12 +32,14 @@ def model_1(objeto1_peso:float,objeto2_peso:float,objeto3_peso:float,objeto4_pes
                                     data.iloc[0,3]*modelo.x4+data.iloc[0,4]*modelo.x5 <= data.iloc[0,5])
 
 
-    glpsol_path = 'C:\winglpk-4.65\glpk-4.65\w64\glpsol.exe'
+    glpsol_path = 'app/glpk-4.65/w64/glpsol.exe'
+    #solver.set_executable(executable='app/glpk-4.65/w64/glpsol.exe', validate=False)
     solver = SolverFactory('glpk', executable=glpsol_path)  
 
     resultado = solver.solve(modelo)
 
        
-    return {"El peso de la mochila es de:":value(modelo.x2)*data[1]+value(modelo.x3)*data[2]+value(modelo.x4)*data[3],
+    return {"El peso de la mochila es de:":value(modelo.x1)*data.iloc[0,0]+value(modelo.x2)*data.iloc[0,1]+value(modelo.x3)*data.iloc[0,2]+
+            value(modelo.x4)*data.iloc[0,3]+value(modelo.x5)*data.iloc[0,4],
              "x1 =": value(modelo.x1),"x2 =": value(modelo.x2),"x3 =": value(modelo.x3),"x4 =": value(modelo.x4),"x5 =": value(modelo.x5)}
 

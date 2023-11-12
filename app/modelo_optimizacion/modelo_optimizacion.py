@@ -24,8 +24,6 @@ w5=0
 
 peso_total=0
 
-#modelo.restriccion1 = Constraint(expr=w1*modelo.x1 + w2*modelo.x2+w3*modelo.x3+w4*modelo.x4+w5*modelo.x5 <= peso_total)
-
 objeto1_peso = float(input('Peso Objeto 1: '))
 objeto2_peso = float(input('Peso Objeto 2: '))
 objeto3_peso = float(input('Peso Objeto 3: '))
@@ -43,23 +41,15 @@ modelo.objetivo = Objective(expr=v1*modelo.x1+v2*modelo.x2+v3*modelo.x3+v4*model
 modelo.restriccion = Constraint(expr=data.iloc[0,0]*modelo.x1 + data.iloc[0,1]*modelo.x2+data.iloc[0,2]*modelo.x3+
                                     data.iloc[0,3]*modelo.x4+data.iloc[0,4]*modelo.x5 <= data.iloc[0,5])
 
-glpsol_path = 'C:\winglpk-4.65\glpk-4.65\w64\glpsol.exe'
+glpsol_path = 'app\glpk-4.65\w64\glpsol.exe'
+
 solver = SolverFactory('glpk', executable=glpsol_path)  
+solver.set_executable(executable='app/glpk-4.65/w64/glpsol.exe', validate=False)
 
 resultado = solver.solve(modelo)
+print(resultado)
 
 
 #pickle.dump(modelo, open('app/modelo_optimizacion/modelo.pkl','wb'))
 
 
-#glpsol_path = 'C:\winglpk-4.65\glpk-4.65\w64\glpsol.exe'
-#solver = SolverFactory('glpk', executable=glpsol_path)  
-
-#resultado = solver.solve(modelo)
-
-# Mostrar valor de funcion objetivo y variables
-#modelo.pprint()
-#print("\nResultados:")
-#print("x1 =", value(modelo.x1),"x2 =", value(modelo.x2),"x3 =", value(modelo.x3),"x4 =", value(modelo.x4),"x5 =", value(modelo.x5))
-#print("El peso de la mochila es de:",value(modelo.x2)*w2+value(modelo.x3)*w3+value(modelo.x4)*w4)
-#print("Valor óptimo de la función objetivo:", value(modelo.objetivo))
