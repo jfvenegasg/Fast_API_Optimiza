@@ -2,13 +2,13 @@
 
 En este respositorio se encuentra una API con un endpoint,el cual permite resolver un modelo de optimización combinatoria.Especificamente la API permite resolver una instancia del problema de la mochila,el cual se expone de forma general a continuación.
 
-$max \sum_{j=1}^n v_{j} x_{j}$
-
+$$ max \sum_{j=1}^n v_{j} x_{j} $$
+       
 sujeto a 
 
-$\sum_{j=1}^n w_{j}x_{j} \leq c \ \ \ \ i=1,2,...,m$
+$$ \sum_{j=1}^n w_{j}x_{j} \leq c \ \ \ \ i=1,2,...,m $$
 
-$x_{i} \in \{0,1\}$
+$$ x_{i} \in \{0,1\} $$
 
 Sin embargo en la API,se instancia el problema en donde solo se tiene un total de 5 objetos.En donde se puede definir el peso de cada objeto y el peso total que soporta la mochila.
 
@@ -36,13 +36,13 @@ El siguiente proyecto considera como archivos y elementos principales,el archivo
 
 Dentro de la carpeto **Modelo_optimizacion**,se encuentra la definición del modelo de optimización.Cabe considerar que la API, resuelve una instancia particular del problema de la mochila,en donde los unicos parametros configurables son los pesos de cada objeto y el peso que soporta la mochila.
 
-$max \sum_{j=1}^5 0.2x_{j}$
+$$ max \sum_{j=1}^5 0.2x_{j} $$
 
 sujeto a 
 
-$\sum_{j=1}^5 w_{j}x_{j} \leq c \ \ \ \ i=1,2,...,m$
+$$ \sum_{j=1}^5 w_{j}x_{j} \leq c \ \ \ \ i=1,2,...,m $$
 
-$x_{i} \in \{0,1\}$
+$$ x_{i} \in \{0,1\} $$
 
 Como se ve en el modelo,la utilidad de cada objeto es fija y es la misma para cada objeto.
 
