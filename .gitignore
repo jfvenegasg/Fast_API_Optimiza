@@ -1,5 +1,5 @@
 #ignorar carpeta de glpk
-app/
+app/glpk-4.65/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
