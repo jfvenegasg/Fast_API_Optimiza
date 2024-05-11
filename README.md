@@ -58,3 +58,7 @@ uvicorn api.main:app --reload
 ```
 
 ![API_OPTI](api_opti.png)
+
+Finalmente si queremos acceder al servicio,podemos entrar en el siguiente URL.
+
+<https://api-opti-py-ipckdq4a7a-uc.a.run.app/docs>
